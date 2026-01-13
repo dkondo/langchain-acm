@@ -1,63 +1,25 @@
-# 🦜️🔗 LangChain {partner}
+# 🦜️🔗 LangChain ACE (Agentic Context Engineering)
 
-This repository contains 1 package with {partner} integrations with LangChain:
+This repository contains 1 package with Agentic Context Engineering (ACE) middelware for LangChain v1:
 
-- [langchain-{package_lower}](https://pypi.org/project/langchain-{package_lower}/)
+- [langchain-ace](https://pypi.org/project/langchain-ace/)
 
-## Initial Repo Checklist (Remove this section after completing)
 
-Welcome to the LangChain Partner Integration Repository! This checklist will help you get started with your new repository.
+Agentic Context Engineering (ACE) is a technique developed at Stanford that enables agents to self-improve, treating context as an evolving playbook.  This playbook accumulates and refines strategies through a process of reflection and curation.
 
-After creating your repo from the integration-repo-template, we'll go through how to
-set up your new repository in Github.
+More details from the Stanford paper here: Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models
 
-This setup assumes that the partner package is already split. For those instructions,
-see [these docs](https://docs.langchain.com/oss/python/contributing/integrations-langchain).
+With ACE as middelware, one can easily enable any agent to use ACE with a simple parameter [ace] parameter:
 
-> [!NOTE]
-> Integration packages can be managed in your own Github organization.
+agent: Any = create_agent(
+    model="gpt-4.1",
+    tools=[calculator],
+    middleware=[ace],
+    checkpointer=checkpointer,
+)
 
-Code (auto ecli)
+This ACE middelware implements implements the following:
 
-- [ ] Fill out the readme above (for folks that follow pypi link)
-- [ ] Copy package into /libs folder
-- [ ] Update `"Source Code"` and `repository` under `[project.urls]` in /libs/*/pyproject.toml
-
-Workflow code (auto ecli)
-
-- [ ] Populate .github/workflows/_release.yml with `on.workflow_dispatch.inputs.working-directory.default`
-- [ ] Configure `LIB_DIRS` in .github/scripts/check_diff.py
-
-Workflow code (manual)
-
-- [ ] Add secrets as env vars in .github/workflows/_release.yml
-
-Monorepo workflow code (manual)
-
-- [ ] Pull in new code location, remove old in .github/workflows/api_doc_build.yml
-
-In github (manual)
-
-- [ ] Add any required integration testing secrets in Github
-- [ ] Add any required partner collaborators in Github
-- [ ] "Allow auto-merge" in General Settings (recommended)
-- [ ] Only "Allow squash merging" in General Settings (recommended)
-- [ ] Set up ruleset matching CI build (recommended)
-    - name: ci build
-    - enforcement: active
-    - bypass: write
-    - target: default branch
-    - rules: restrict deletions, require status checks ("CI Success"), block force pushes
-- [ ] Set up ruleset (recommended)
-    - name: require prs
-    - enforcement: active
-    - bypass: none
-    - target: default branch
-    - rules: restrict deletions, require a pull request before merging (0 approvals, no boxes), block force pushes
-
-Pypi (manual)
-
-- [ ] Add new repo to test-pypi and pypi trusted publishing
-
-> [!NOTE]
-> Tag [@ccurme](https://github.com/ccurme) if you have questions on any step.
+A reflector that analyzes agent response correctness, reasoning trajectories, and tags playbook bullets as helpful/harmful
+A curator that periodically adds new insights to the playbook based on reflections
+These entities work in the background using wrappers and hooks provided by LangChain v1’s middleware.
