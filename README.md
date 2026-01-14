@@ -1,4 +1,4 @@
-# 🦜️🔗 LangChain ACE (Agentic Context Engineering)
+# 🦜️🔗 LangChain v1 Middelware for Agentic Context Engineering (ACE)
 
 This repository contains a package with Agentic Context Engineering (ACE) enabled as middleware for LangChain v1 [langchain-ace](https://pypi.org/project/langchain-ace/).
 
