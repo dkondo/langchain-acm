@@ -2,7 +2,11 @@ import json
 import sys
 from typing import Dict
 
+<<<<<<< HEAD
 LIB_DIRS = ["libs/langchain-acm"]
+=======
+LIB_DIRS = ["libs/langchain-ace"]
+>>>>>>> 1c7d70e (Initial port to ACE package)
 
 if __name__ == "__main__":
     files = sys.argv[1:]
