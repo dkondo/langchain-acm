@@ -198,10 +198,14 @@ def simulate_agent_response(question: str, ground_truth: str | None = None) -> d
         Simulated agent state with messages.
     """
     # Simulate a simple response (in practice, this would be the actual agent)
+    answer = ground_truth or "computed value"
+    response_content = (
+        f"Let me solve this step by step.\n\n**ANSWER**: {answer}\n\n<!-- bullet_ids: [] -->"
+    )
     state: ACEState = {
         "messages": [
             HumanMessage(content=question),
-            AIMessage(content=f"Let me solve this step by step.\n\n**ANSWER**: {ground_truth or 'computed value'}\n\n<!-- bullet_ids: [] -->"),
+            AIMessage(content=response_content),
         ],
     }
     if ground_truth:
