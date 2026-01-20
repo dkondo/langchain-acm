@@ -21,7 +21,6 @@ jobs:
     strategy:
       matrix:
         python-version:
-          - "3.9"
           - "3.12"
     name: "make test #${{ matrix.python-version }}"
     steps:

@@ -20,7 +20,6 @@ jobs:
     strategy:
       matrix:
         python-version:
-          - "3.9"
           - "3.12"
     name: "uv run pytest -m compile tests/integration_tests"
     steps:
