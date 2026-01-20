@@ -37,6 +37,9 @@ Documentation = "https://github.com/dkondo/langchain-acm#readme"
 Repository = "https://github.com/dkondo/langchain-acm"
 "Source Code" = "https://github.com/dkondo/langchain-acm/tree/main/libs/langchain-acm"
 
+[tool.hatch.build.targets.wheel]
+packages = ["ace"]
+
 [dependency-groups]
 test = [
     "pytest>=8.0.0,<9.0.0",
