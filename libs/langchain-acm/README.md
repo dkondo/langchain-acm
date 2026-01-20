@@ -1,8 +1,8 @@
-# 🦜️🔗 langchain-ace
+# 🦜️🔗 langchain-acm
 
 **ACE (Agentic Context Engineering)** middleware for LangChain agents that enables self-improvement through evolving playbooks.
 
-[![PyPI version](https://badge.fury.io/py/langchain-ace.svg)](https://badge.fury.io/py/langchain-ace)
+[![PyPI version](https://badge.fury.io/py/langchain-acm.svg)](https://badge.fury.io/py/langchain-acm)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
@@ -14,19 +14,19 @@ Based on the research paper: [Agentic Context Engineering: Evolving Contexts for
 ## Installation
 
 ```bash
-pip install langchain-ace
+pip install langchain-acm
 ```
 
 For development:
 ```bash
-pip install langchain-ace[test]
+pip install langchain-acm[test]
 ```
 
 ## Quick Start
 
 ```python
 from langchain.agents import create_agent
-from langchain_ace import ACEMiddleware
+from ace import ACEMiddleware
 from langchain_core.messages import HumanMessage
 
 # Create ACE middleware
@@ -158,7 +158,7 @@ The main middleware class that implements the ACE framework.
 ### Playbook Utilities
 
 ```python
-from langchain_ace import (
+from ace import (
     ACEPlaybook,              # Dataclass for playbook state
     SectionName,              # Enum of section names
     initialize_empty_playbook,

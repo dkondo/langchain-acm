@@ -9,7 +9,7 @@ from __future__ import annotations
 from langchain_core.messages import SystemMessage
 from langchain_core.prompts import PromptTemplate
 
-from langchain_ace.playbook import SectionName
+from ace.playbook import SectionName
 
 # System prompt enhancement template
 PLAYBOOK_INJECTION_TEMPLATE = """{original_prompt}

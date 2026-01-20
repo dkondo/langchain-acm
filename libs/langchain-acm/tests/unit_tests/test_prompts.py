@@ -4,7 +4,7 @@ import pytest
 
 from langchain_core.messages import SystemMessage
 
-from langchain_ace.prompts import (
+from ace.prompts import (
     build_curator_prompt,
     build_reflector_prompt,
     build_system_prompt_with_playbook,

@@ -2,7 +2,7 @@
 
 import pytest
 
-from langchain_ace.playbook import (
+from ace.playbook import (
     ACEPlaybook,
     ParsedBullet,
     SectionName,

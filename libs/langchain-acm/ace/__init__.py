@@ -7,7 +7,7 @@ strategies through a modular process of generation, reflection, and curation.
 Example:
     ```python
     from langchain.agents import create_agent
-    from langchain_ace import ACEMiddleware
+    from ace import ACEMiddleware
 
     # Create ACE middleware (both models are required)
     ace = ACEMiddleware(
@@ -29,11 +29,11 @@ Example:
 
 For more information, see:
 - Paper: https://arxiv.org/abs/2510.04618
-- Documentation: https://github.com/dkondo/langchain-ace
+- Documentation: https://github.com/dkondo/langchain-acm
 """
 
-from langchain_ace.middleware import ACEMiddleware, ACEState
-from langchain_ace.playbook import (
+from ace.middleware import ACEMiddleware, ACEState
+from ace.playbook import (
     ACEPlaybook,
     SectionName,
     count_tokens_approximate,
@@ -45,7 +45,7 @@ from langchain_ace.playbook import (
     parse_playbook_line,
     update_bullet_counts,
 )
-from langchain_ace.types import (
+from ace.types import (
     AgentMiddleware,
     AgentState,
     ModelCallResult,

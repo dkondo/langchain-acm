@@ -6,9 +6,9 @@ import pytest
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
-from langchain_ace.middleware import ACEMiddleware, ACEState
-from langchain_ace.playbook import SectionName, initialize_empty_playbook
-from langchain_ace.types import ModelRequest, Runtime
+from ace.middleware import ACEMiddleware, ACEState
+from ace.playbook import SectionName, initialize_empty_playbook
+from ace.types import ModelRequest, Runtime
 
 
 class TestACEMiddlewareInit:

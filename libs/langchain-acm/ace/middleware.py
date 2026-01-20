@@ -20,7 +20,7 @@ from langchain_core.messages import (
 )
 from typing_extensions import NotRequired, override
 
-from langchain_ace.playbook import (
+from ace.playbook import (
     ACEPlaybook,
     add_bullet_to_playbook,
     extract_bullet_ids,
@@ -33,12 +33,12 @@ from langchain_ace.playbook import (
     prune_harmful_bullets,
     update_bullet_counts,
 )
-from langchain_ace.prompts import (
+from ace.prompts import (
     build_curator_prompt,
     build_reflector_prompt,
     build_system_prompt_with_playbook,
 )
-from langchain_ace.types import (
+from ace.types import (
     AgentMiddleware,
     AgentState,
     ModelCallResult,
@@ -47,7 +47,7 @@ from langchain_ace.types import (
     OmitFromSchema,
     Runtime,
 )
-from langchain_ace.utils import init_chat_model
+from ace.utils import init_chat_model
 
 if TYPE_CHECKING:
     from langchain_core.language_models.chat_models import BaseChatModel
@@ -100,7 +100,7 @@ class ACEMiddleware(AgentMiddleware[ACEState, Any]):
 
         ```python
         from langchain.agents import create_agent
-        from langchain_ace import ACEMiddleware
+        from ace import ACEMiddleware
 
         ace = ACEMiddleware(
             reflector_model="gpt-4o-mini",

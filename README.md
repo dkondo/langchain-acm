@@ -2,7 +2,7 @@
 
 **Agentic Context Engineering (ACE)** middleware for LangChain agents that enables self-improvement through evolving playbooks.
 
-[![PyPI version](https://badge.fury.io/py/langchain-ace.svg)](https://badge.fury.io/py/langchain-ace)
+[![PyPI version](https://badge.fury.io/py/langchain-acm.svg)](https://badge.fury.io/py/langchain-acm)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
@@ -11,19 +11,19 @@ ACE is a technique developed at Stanford that enables agents to self-improve by 
 
 Based on the research paper: [Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models](https://arxiv.org/abs/2510.04618)
 
-This repository contains the `langchain-ace` package in `libs/langchain-ace/`.
+This repository contains the `langchain-acm` package in `libs/langchain-acm/`.
 
 ## Installation
 
 ```bash
-pip install langchain-ace
+pip install langchain-acm
 ```
 
 ## Quick Start
 
 ```python
 from langchain.agents import create_agent
-from langchain_ace import ACEMiddleware
+from ace import ACEMiddleware
 from langchain_core.messages import HumanMessage
 
 # Create ACE middleware
@@ -66,12 +66,12 @@ The ACE middleware implements a three-role architecture:
 
 ## Documentation
 
-See `libs/langchain-ace/README.md` for detailed documentation.
+See `libs/langchain-acm/README.md` for detailed documentation.
 
 ## Quick Start Demo
 
 ```bash
-cd libs/langchain-ace
+cd libs/langchain-acm
 export OPENAI_API_KEY="your-key"
 uv run python examples/ace_playbook_demo.py
 ```

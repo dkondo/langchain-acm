@@ -30,7 +30,7 @@ from typing import Any
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_core.tools import tool
 
-from langchain_ace import ACEMiddleware, ACEState, SectionName
+from ace import ACEMiddleware, ACEState, SectionName
 
 # Training data with ground truth
 # These are financial word problems where we know the correct answer.
@@ -266,7 +266,7 @@ def main() -> None:
     print()
     print("```python")
     print("from langchain.agents import create_agent")
-    print("from langchain_ace import ACEMiddleware")
+    print("from ace import ACEMiddleware")
     print()
     print("ace = ACEMiddleware(")
     print('    reflector_model="gpt-4o-mini",')

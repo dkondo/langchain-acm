@@ -27,7 +27,7 @@ integration_tests:
 
 # Type checking
 typecheck:
-	uv run --group typing mypy langchain_ace
+	uv run --group typing mypy ace
 
 # Clean build artifacts
 clean:
