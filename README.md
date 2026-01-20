@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🦜️🔗 LangChain Middleware for Agentic Context
 
 Agents can continuously learn when their context is curated and adapted dynamically.
@@ -16,42 +15,18 @@ ACE is a technique developed at Stanford that enables agents to self-improve by 
 Based on the research paper: [Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models](https://arxiv.org/abs/2510.04618)
 
 This repository contains the `langchain-acm` package in `libs/langchain-acm/`.
-=======
-# 🦜️🔗 LangChain ACE Middleware
-
-**Agentic Context Engineering (ACE)** middleware for LangChain agents that enables self-improvement through evolving playbooks.
-
-[![PyPI version](https://badge.fury.io/py/langchain-ace.svg)](https://badge.fury.io/py/langchain-ace)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-## Overview
-
-ACE is a technique developed at Stanford that enables agents to self-improve by treating context as an evolving playbook. This playbook accumulates and refines strategies through a process of reflection and curation.
-
-Based on the research paper: [Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models](https://arxiv.org/abs/2510.04618)
-
-This repository contains the `langchain-ace` package in `libs/langchain-ace/`.
->>>>>>> 1c7d70e (Initial port to ACE package)
 
 ## Installation
 
 ```bash
-<<<<<<< HEAD
 pip install langchain-acm
-=======
-pip install langchain-ace
->>>>>>> 1c7d70e (Initial port to ACE package)
 ```
 
 ## Quick Start
 
 ```python
 from langchain.agents import create_agent
-<<<<<<< HEAD
 from ace import ACEMiddleware
-=======
-from langchain_ace import ACEMiddleware
->>>>>>> 1c7d70e (Initial port to ACE package)
 from langchain_core.messages import HumanMessage
 
 # Create ACE middleware
@@ -94,20 +69,12 @@ The ACE middleware implements a three-role architecture:
 
 ## Documentation
 
-<<<<<<< HEAD
 See `libs/langchain-acm/README.md` for detailed documentation.
-=======
-See `libs/langchain-ace/README.md` for detailed documentation.
->>>>>>> 1c7d70e (Initial port to ACE package)
 
 ## Quick Start Demo
 
 ```bash
-<<<<<<< HEAD
 cd libs/langchain-acm
-=======
-cd libs/langchain-ace
->>>>>>> 1c7d70e (Initial port to ACE package)
 export OPENAI_API_KEY="your-key"
 uv run python examples/ace_playbook_demo.py
 ```
