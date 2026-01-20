@@ -1,6 +1,6 @@
 # 🦜️🔗 LangChain Middleware for Agentic Context
 
-Agents can continuously learn when there context is curated and adapted dynamically.
+Agents can continuously learn when their context is curated and adapted dynamically.
 langchain-acm is a package for LangChain v1 middleware that manages agentic context. Currently the package supports Agentic Context Engineering (ACE) developed at Stanford.
 
 **Agentic Context Engineering (ACE)** middleware for LangChain agents that enables self-improvement through evolving playbooks.
