@@ -1,22 +1,86 @@
-# 🦜️🔗 LangChain v1 Middleware for Agentic Context Engineering (ACE)
+# 🦜️🔗 LangChain Middleware for Agentic Context
 
-This repository contains a package with Agentic Context Engineering (ACE) enabled as middleware for LangChain v1 [langchain-ace](https://pypi.org/project/langchain-ace/).
+**Agentic Context Engineering (ACE)** middleware for LangChain agents that enables self-improvement through evolving playbooks.
 
-Agentic Context Engineering (ACE) is a technique developed at Stanford that enables agents to self-improve, treating context as an evolving playbook.  This playbook accumulates and refines strategies through a process of reflection and curation.
+[![PyPI version](https://badge.fury.io/py/langchain-ace.svg)](https://badge.fury.io/py/langchain-ace)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-More details from the Stanford paper here: Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models
+## Overview
 
-With ACE as middelware, one can easily enable any agent to use ACE with a simple parameter [ace] parameter:
+ACE is a technique developed at Stanford that enables agents to self-improve by treating context as an evolving playbook. This playbook accumulates and refines strategies through a process of reflection and curation.
 
-agent: Any = create_agent(
-    model="gpt-4.1",
-    tools=[calculator],
-    middleware=[ace],
-    checkpointer=checkpointer,
+Based on the research paper: [Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models](https://arxiv.org/abs/2510.04618)
+
+This repository contains the `langchain-ace` package in `libs/langchain-ace/`.
+
+## Installation
+
+```bash
+pip install langchain-ace
+```
+
+## Quick Start
+
+```python
+from langchain.agents import create_agent
+from langchain_ace import ACEMiddleware
+from langchain_core.messages import HumanMessage
+
+# Create ACE middleware
+ace = ACEMiddleware(
+    reflector_model="gpt-4o-mini",
+    curator_model="gpt-4o-mini",
+    curator_frequency=10,
 )
 
-This ACE middelware implements implements the following:
+# Create agent with ACE middleware
+agent = create_agent(
+    model="gpt-4o",
+    tools=[calculator],
+    middleware=[ace],
+)
 
-A reflector that analyzes agent response correctness, reasoning trajectories, and tags playbook bullets as helpful/harmful
-A curator that periodically adds new insights to the playbook based on reflections
-These entities work in the background using wrappers and hooks provided by LangChain v1’s middleware.
+# The agent will self-improve through playbook evolution
+result = agent.invoke({
+    "messages": [HumanMessage(content="Calculate the NPV...")]
+})
+```
+
+## How It Works
+
+The ACE middleware implements a three-role architecture:
+
+| Role | Purpose | When It Runs |
+|------|---------|--------------|
+| **Generator** | Uses playbook to enhance responses | Every model call |
+| **Reflector** | Analyzes trajectories and tags bullets | After each response |
+| **Curator** | Adds new insights to playbook | Every N interactions |
+
+## Features
+
+- **Self-improving agents**: Playbook evolves based on what works
+- **Fresh bullet protection**: New insights survive at least one evaluation round
+- **Token budget enforcement**: Automatic playbook trimming with priority-based selection
+- **Ground truth training**: Faster learning when correct answers are available
+- **Full tool support**: Works with tool-using agents
+
+## Documentation
+
+See `libs/langchain-ace/README.md` for detailed documentation.
+
+## Quick Start Demo
+
+```bash
+cd libs/langchain-ace
+export OPENAI_API_KEY="your-key"
+uv run python examples/ace_playbook_demo.py
+```
+
+## References
+
+- **Paper**: [Agentic Context Engineering](https://arxiv.org/abs/2510.04618)
+- **Original Implementation**: [github.com/ace-agent/ace](https://github.com/ace-agent/ace)
+
+## License
+
+MIT License
