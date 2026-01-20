@@ -106,6 +106,9 @@ ignore_missing_imports = true
 [tool.pytest.ini_options]
 addopts = "--strict-markers --strict-config --durations=5 -vv"
 asyncio_mode = "auto"
+markers = [
+    "compile: mark tests that only validate import/collection",
+]
 filterwarnings = [
     "ignore::DeprecationWarning",
 ]
