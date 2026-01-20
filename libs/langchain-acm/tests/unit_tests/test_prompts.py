@@ -1,7 +1,5 @@
 """Unit tests for prompt utilities."""
 
-import pytest
-
 from langchain_core.messages import SystemMessage
 
 from ace.prompts import (

@@ -34,8 +34,7 @@ def init_chat_model(model: str) -> BaseChatModel:
 
     # OpenAI models
     if any(
-        model_lower.startswith(prefix)
-        for prefix in ("gpt-", "o1", "o3", "chatgpt-", "ft:gpt-")
+        model_lower.startswith(prefix) for prefix in ("gpt-", "o1", "o3", "chatgpt-", "ft:gpt-")
     ):
         try:
             from langchain_openai import ChatOpenAI

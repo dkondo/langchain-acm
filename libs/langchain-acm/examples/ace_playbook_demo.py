@@ -201,7 +201,13 @@ def simulate_agent_response(question: str, ground_truth: str | None = None) -> d
     state: ACEState = {
         "messages": [
             HumanMessage(content=question),
-            AIMessage(content=f"Let me solve this step by step.\n\n**ANSWER**: {ground_truth or 'computed value'}\n\n<!-- bullet_ids: [] -->"),
+            AIMessage(
+                content=(
+                    "Let me solve this step by step.\n\n"
+                    f"**ANSWER**: {ground_truth or 'computed value'}\n\n"
+                    "<!-- bullet_ids: [] -->"
+                )
+            ),
         ],
     }
     if ground_truth:

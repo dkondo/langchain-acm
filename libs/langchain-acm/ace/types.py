@@ -7,13 +7,13 @@ from `langchain.agents.middleware.types`.
 
 from __future__ import annotations
 
-from abc import ABC, abstractmethod
+from abc import ABC
 from collections.abc import Awaitable, Callable, Sequence
 from dataclasses import dataclass
 from typing import Any, Generic, TypeVar
 
 from langchain_core.messages import BaseMessage, SystemMessage
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import TypedDict
 
 # Type variables for generic middleware
 StateT = TypeVar("StateT", bound="AgentState")

@@ -1,13 +1,10 @@
 """Unit tests for ACE middleware."""
 
-from unittest.mock import MagicMock, patch
-
-import pytest
+from unittest.mock import MagicMock
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
 from ace.middleware import ACEMiddleware, ACEState
-from ace.playbook import SectionName, initialize_empty_playbook
 from ace.types import ModelRequest, Runtime
 
 
