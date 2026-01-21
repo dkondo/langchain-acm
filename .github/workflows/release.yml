@@ -1,0 +1,23 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      working-directory:
+        required: true
+        type: string
+        default: "libs/langchain-acm"
+        description: "From which folder this pipeline executes"
+      dangerous-nonmaster-release:
+        required: false
+        type: boolean
+        default: false
+        description: "Release from a non-master branch (danger!)"
+
+jobs:
+  release:
+    uses: ./.github/workflows/_release.yml
+    with:
+      working-directory: ${{ inputs.working-directory }}
+      dangerous-nonmaster-release: ${{ inputs.dangerous-nonmaster-release }}
+    secrets: inherit
