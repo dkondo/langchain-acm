@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "langchain-acm"
+name = "langchain-continuous-learning"
 description = "Agentic Context Engineering (ACE) middleware for LangChain v1 agents"
 license = { text = "MIT" }
 readme = "README.md"
@@ -32,10 +32,10 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/dkondo/langchain-acm"
-Documentation = "https://github.com/dkondo/langchain-acm#readme"
-Repository = "https://github.com/dkondo/langchain-acm"
-"Source Code" = "https://github.com/dkondo/langchain-acm/tree/main/libs/langchain-acm"
+Homepage = "https://github.com/dkondo/langchain-continuous-learning"
+Documentation = "https://github.com/dkondo/langchain-continuous-learning#readme"
+Repository = "https://github.com/dkondo/langchain-continuous-learning"
+"Source Code" = "https://github.com/dkondo/langchain-continuous-learning/tree/main/libs/langchain-continuous-learning"
 
 [tool.hatch.build.targets.wheel]
 packages = ["ace"]

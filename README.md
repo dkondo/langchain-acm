@@ -1,11 +1,11 @@
 # 🦜️🔗 LangChain Middleware for Agentic Context
 
 Agents can continuously learn when their context is curated and adapted dynamically.
-langchain-acm is a package for LangChain v1 middleware that manages agentic context. Currently the package supports Agentic Context Engineering (ACE) developed at Stanford.
+langchain-continuous-learning is a package for LangChain v1 middleware that manages agentic context. Currently the package supports Agentic Context Engineering (ACE) developed at Stanford.
 
 **Agentic Context Engineering (ACE)** middleware for LangChain agents that enables self-improvement through evolving playbooks.
 
-[![PyPI version](https://badge.fury.io/py/langchain-acm.svg)](https://badge.fury.io/py/langchain-acm)
+[![PyPI version](https://badge.fury.io/py/langchain-continuous-learning.svg)](https://badge.fury.io/py/langchain-continuous-learning)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
@@ -14,12 +14,12 @@ ACE is a technique developed at Stanford that enables agents to self-improve by 
 
 Based on the research paper: [Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models](https://arxiv.org/abs/2510.04618)
 
-This repository contains the `langchain-acm` package in `libs/langchain-acm/`.
+This repository contains the `langchain-continuous-learning` package in `libs/langchain-continuous-learning/`.
 
 ## Installation
 
 ```bash
-pip install langchain-acm
+pip install langchain-continuous-learning
 ```
 
 ## Quick Start
@@ -69,12 +69,12 @@ The ACE middleware implements a three-role architecture:
 
 ## Documentation
 
-See `libs/langchain-acm/README.md` for detailed documentation.
+See `libs/langchain-continuous-learning/README.md` for detailed documentation.
 
 ## Quick Start Demo
 
 ```bash
-cd libs/langchain-acm
+cd libs/langchain-continuous-learning
 export OPENAI_API_KEY="your-key"
 uv run python examples/ace_playbook_demo.py
 ```

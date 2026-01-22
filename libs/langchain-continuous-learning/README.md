@@ -1,8 +1,8 @@
-# 🦜️🔗 langchain-acm
+# 🦜️🔗 langchain-continuous-learning
 
 **ACE (Agentic Context Engineering)** middleware for LangChain agents that enables self-improvement through evolving playbooks.
 
-[![PyPI version](https://badge.fury.io/py/langchain-acm.svg)](https://badge.fury.io/py/langchain-acm)
+[![PyPI version](https://badge.fury.io/py/langchain-continuous-learning.svg)](https://badge.fury.io/py/langchain-continuous-learning)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
@@ -14,12 +14,12 @@ Based on the research paper: [Agentic Context Engineering: Evolving Contexts for
 ## Installation
 
 ```bash
-pip install langchain-acm
+pip install langchain-continuous-learning
 ```
 
 For development:
 ```bash
-pip install langchain-acm[test]
+pip install langchain-continuous-learning[test]
 ```
 
 ## Quick Start

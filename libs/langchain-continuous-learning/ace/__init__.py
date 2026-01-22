@@ -29,7 +29,7 @@ Example:
 
 For more information, see:
 - Paper: https://arxiv.org/abs/2510.04618
-- Documentation: https://github.com/dkondo/langchain-acm
+- Documentation: https://github.com/dkondo/langchain-continuous-learning
 """
 
 from ace.middleware import ACEMiddleware, ACEState

@@ -2,7 +2,7 @@ import json
 import sys
 from typing import Dict
 
-LIB_DIRS = ["libs/langchain-acm"]
+LIB_DIRS = ["libs/langchain-continuous-learning"]
 
 if __name__ == "__main__":
     files = sys.argv[1:]
