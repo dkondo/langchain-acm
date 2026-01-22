@@ -1,23 +1,73 @@
-name: release
+name: Publish to TestPyPI and PyPI
 
 on:
-  workflow_dispatch:
-    inputs:
-      working-directory:
-        required: true
-        type: string
-        default: "libs/langchain-acm"
-        description: "From which folder this pipeline executes"
-      dangerous-nonmaster-release:
-        required: false
-        type: boolean
-        default: false
-        description: "Release from a non-master branch (danger!)"
+  push:
+    tags:
+      - "v*"
+
+env:
+  WORKING_DIRECTORY: "libs/langchain-acm"
 
 jobs:
-  release:
-    uses: ./.github/workflows/_release.yml
-    with:
-      working-directory: ${{ inputs.working-directory }}
-      dangerous-nonmaster-release: ${{ inputs.dangerous-nonmaster-release }}
-    secrets: inherit
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python + uv
+        uses: "./.github/actions/uv_setup"
+        with:
+          python-version: "3.11"
+
+      - name: Build dists
+        run: uv build
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+
+      - name: Upload dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: ${{ env.WORKING_DIRECTORY }}/dist/
+
+  publish-testpypi:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/langchain-acm
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Publish to TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+          verbose: true
+
+  publish-pypi:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/langchain-acm
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          verbose: true
